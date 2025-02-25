@@ -1,0 +1,71 @@
+services:
+  client:
+    build:
+      context: client
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+      - 9999:9229
+    environment:
+      - PORT=3000
+    volumes:
+      - ./client/.:/opt/client
+      - /opt/client/node_modules
+    networks:
+      - storyblok_sample_default
+  
+  # Starts a local express server, also configured with inngest for long running tasks
+  # api:
+  #   build:
+  #     context: api
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 3200:3200
+  #   environment:
+  #     - PORT=3200
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - ./api/.:/opt/api
+  #     - /opt/api/node_modules
+  #   networks:
+  #     - storyblok_sample_default
+  
+  # Sets up a local instance of Inngest, useful for orchistration of long running tasks
+  # inngest:
+  #   image: inngest/inngest:latest
+  #   container_name: storyblok-sample-inngest
+  #   command: inngest start --event-key ${INNGEST_EVENT_KEY} --signing-key ${INNGEST_SIGNING_KEY} -u http://host.docker.internal:3200/api/inngest
+  #   ports:
+  #     - "8288:8288"
+  #   depends_on:
+  #     - inngest
+  #   env_file:
+  #     - ./api/.env
+  #   extra_hosts:
+  #     - "host.docker.internal:host-gateway"
+  #   networks:
+  #     - storyblok_sample_default
+
+  # Runs Cypress in a container, not really useful for local dev where you'll probably be running cypress on your host machine
+  # e2e:
+  #   build:
+  #     context: e2e
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 3820:3820
+  #   env_file:
+  #     - ./e2e/.env
+  #   volumes:
+  #     - ./e2e/.:/opt/e2e
+  #     - /opt/e2e/node_modules
+  #   networks:
+  #     - storyblok_sample_default
+
+networks:
+  default:
+  storyblok_sample_default:
+
+volumes:
+  db_data:
+  node_modules:

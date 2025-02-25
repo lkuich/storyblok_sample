@@ -1,4 +1,4 @@
-.yarn/*
+.yarn/
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
@@ -11,3 +11,9 @@
 
 #!.yarn/cache
 .pnp.*
+
+node_modules/
+.env
+dist/
+localhost.pem
+localhost-key.pem
