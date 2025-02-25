@@ -4,6 +4,8 @@ A playground for experimenting with potential technologies used in the Storyblok
 
 ## Getting started
 
+Signup with Storyblok and create a new space. It will create a '/home' page by default.
+
 Fetch your Storyblok story ID. Create a new file in `client/.env.development`:
 ```bash
 STORYBOOK_TOKEN=yourstorybloktoken
