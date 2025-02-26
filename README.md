@@ -4,7 +4,7 @@ A playground for experimenting with potential technologies used in the Storyblok
 
 ## Getting started
 
-Signup with Storyblok and create a new space. It will create a '/home' page by default.
+Signup with Storyblok and create a new space. It will create a `/home` page by default.
 
 Fetch your Storyblok story ID. Create a new file in `client/.env.development`:
 ```bash
@@ -16,12 +16,14 @@ You can now run the whole stack with.
 docker compose up
 ```
 
+The client will be available at [http://localhost:3000/home](http://localhost:3000/home)
+
 ### client
 
 This is a Next.js 18 project that uses Storyblok as a CMS using the pages router, configured with Tailwind and SCSS (if needed). There are also good examples of using the app router here that we should consider:
 https://github.com/storyblok/storyblok-react/tree/main/playground
 
-For running the Storyblok editor locally, generate a certificate for localhost:
+To run in the Storyblok editor from your local env, generate a certificate for localhost:
 ```bash
 # Only needs to be done once
 cd client/
@@ -35,7 +37,7 @@ Now run the proxy:
 yarn storybook:proxy
 ```
 
-Storyblok will now be available at https://localhost:3010
+The client will now be available to the Storyblok editor at: https://localhost:3010
 
 When building the React end of the Storyblok components, it's helpful to have Type coverage for the component props. Storyblock's CLI provides a way to do this:
 ```bash
