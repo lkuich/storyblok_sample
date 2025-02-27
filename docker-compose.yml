@@ -62,10 +62,44 @@ services:
   #   networks:
   #     - storyblok_sample_default
 
+  # A DB instance is always handy, this is a postgres instance
+  # postgres:
+  #   image: postgres:16
+  #   container_name: sample-postgres
+  #   restart: always
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #       - "5432:5432"
+  #   environment:
+  #     - POSTGRES_DB=postgres
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=pgpass
+  #   networks:
+  #     - storyblok_sample_default
+
+  # A DB instance is always handy, this is a MySQL instance
+  mysql:
+    image: mysql:8
+    container_name: sample-mysql
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_USER=sampleuser
+      - MYSQL_DATABASE=sampledb
+      - MYSQL_PASSWORD=samplepass
+    networks:
+      - storyblok_sample_default
+
 networks:
   default:
   storyblok_sample_default:
 
 volumes:
-  db_data:
+  postgres_data:
+  mysql_data:
   node_modules:
