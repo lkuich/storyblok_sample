@@ -4,11 +4,16 @@ A playground for experimenting with potential technologies used in the Storyblok
 
 ## Getting started
 
-Signup with Storyblok and create a new space. It will create a `/home` page by default.
+Signup with Storyblok and create a new space also choose a region for your new space this will be used in the storyblok authentication.
 
-Fetch your Storyblok story ID. Create a new file in `client/.env.development`:
+It will create a `/home` page by default.
+
+In Storyblok `content` tab  you will be able to see the `/home` page created, then click into then click on the `url`, go to configuration and change the preview URL to `https://localhost:3010/`
+
+Then, go to your space settings, click on `Configuration/Access Tokens` then copy the existent `preview token` and place it in a new env file (`client/.env.development`).
+
 ```bash
-STORYBOOK_TOKEN=yourstorybloktoken
+STORYBLOK_TOKEN=yBrKQJvWxIm2YJ3WZMYVOQtt
 ```
 
 You can now run the whole stack with.
@@ -34,16 +39,16 @@ mkcert -install
 
 Now run the proxy:
 ```bash
-yarn storybook:proxy
+yarn storyblok:proxy
 ```
 
 The client will now be available to the Storyblok editor at: https://localhost:3010
 
 When building the React end of the Storyblok components, it's helpful to have Type coverage for the component props. Storyblock's CLI provides a way to do this:
 ```bash
-yarn storybook:login # Logs in to Storyblok, only needs to be done once
-SPACE_ID=yourstoryid yarn storybook:pull # Pulls the schema from Storyblok as JSON
-SPACE_ID=yourstoryid yarn storybook:types # Generates TypeScript types from the JSON
+yarn storyblok:login # Logs in to Storyblok, only needs to be done once
+SPACE_ID=yourstoryid yarn storyblok:pull # Pulls the schema from Storyblok as JSON
+SPACE_ID=yourstoryid yarn storyblok:types # Generates TypeScript types from the JSON
 ```
 
 ### api & inngest

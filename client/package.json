@@ -2,15 +2,16 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook:login": "storyblok login",
-    "storybook:pull": "storyblok pull-components --space $SPACE_ID",
-    "storybook:types": "storyblok generate-typescript-typedefs --sourceFilePaths ./components.$SPACE_ID.json --destinationFilePath ./types/sb-types.d.ts",
-    "storybook:proxy": "local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem"
+    "storyblok:login": "storyblok login",
+    "storyblok:pull": "storyblok pull-components --space $SPACE_ID",
+    "storyblok:types": "storyblok generate-typescript-typedefs --sourceFilePaths ./components.$SPACE_ID.json --destinationFilePath ./types/sb-types.d.ts",
+    "storyblok:proxy": "local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem"
   },
   "dependencies": {
     "@storyblok/react": "^4.4.0",
