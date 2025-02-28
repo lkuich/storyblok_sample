@@ -5,13 +5,14 @@ import Hero from '@/components/Hero';
 import Page from '@/components/Page';
 import Teaser from '@/components/Teaser';
 
-export const getStoryblokApi = () =>
+export const storyblokInitConfig = () => {
   storyblokInit({
-    accessToken: process.env.STORYBOOK_TOKEN,
+    accessToken: process.env.STORYBLOK_TOKEN, // Your SPACE preview token
     use: [apiPlugin],
     apiOptions: {
-      // Region is important, auth will fail, deafult is eu
-      region: 'ca',
+      // Region is important, auth will fail, default is eu
+      // set the region that you have choosen in the space creation
+      region: 'SET_YOUR_SPACE_REGION_HERE',
     },
     components: {
       teaser: Teaser,
@@ -20,3 +21,4 @@ export const getStoryblokApi = () =>
       hero: Hero,
     },
   });
+}
