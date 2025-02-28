@@ -2,15 +2,16 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook:login": "storyblok login",
-    "storybook:pull": "storyblok pull-components --space $SPACE_ID",
-    "storybook:types": "storyblok generate-typescript-typedefs --sourceFilePaths ./components.$SPACE_ID.json --destinationFilePath ./types/sb-types.d.ts",
-    "storybook:proxy": "local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem"
+    "storyblok:login": "storyblok login",
+    "storyblok:pull": "storyblok pull-components --space $SPACE_ID",
+    "storyblok:types": "storyblok generate-typescript-typedefs --sourceFilePaths ./components.$SPACE_ID.json --destinationFilePath ./types/sb-types.d.ts",
+    "storyblok:proxy": "local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem"
   },
   "dependencies": {
     "@storyblok/react": "^4.4.0",
@@ -35,5 +36,5 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
-  "packageManager": "yarn@4.6.0"
+  "packageManager": "yarn@4.6.0+sha512.5383cc12567a95f1d668fbe762dfe0075c595b4bfff433be478dbbe24e05251a8e8c3eb992a986667c1d53b6c3a9c85b8398c35a960587fbd9fa3a0915406728"
 }
